@@ -1,0 +1,433 @@
+@import '../../../../resources/sass/variables.scss';
+
+$intro-color     : darken(#1e88e5, 10);
+$body-color      : #f3f3f3;
+$dark-body-color : darken($body-color, 50);
+
+body,
+#browser {
+    background : $body-color;
+}
+
+body.b-theme-classic-dark {
+    &,
+    #browser,
+    .group-header {
+        background : #2b2b2f;
+    }
+
+    .group-header,
+    .example .title {
+        color      : #ccc;
+    }
+
+    #intro #live-example,
+    .example .image {
+        background : #44444a;
+    }
+
+    .example img {
+        background : transparent;
+    }
+
+}
+
+
+.b-watermark {
+    display : none;
+}
+
+#browser {
+    flex                       : 1;
+    -webkit-overflow-scrolling : touch;
+    overflow-y                 : scroll;
+}
+
+#scroller {
+    padding : 2em;
+}
+
+#intro {
+    position         : relative;
+    color            : #fff;
+    font-weight      : 400;
+    font-size        : 1.2em;
+    overflow         : hidden;
+    max-height       : 500px;
+    background-color : #1e519d;
+
+    transition       : max-height 0.3s;
+
+    .b-theme-stockholm & {
+        background-color : darken(#2667c8, 10);
+    }
+
+    .b-theme-classic-light & {
+        background-color : lighten(#42a5f5, 10);
+    }
+
+    .b-theme-classic-dark & {
+        background-color : darken(#0d47a1, 10);
+    }
+
+    .b-theme-material & {
+        background-color : darken(#1e88e5, 10)
+    }
+
+    #inner {
+        display        : flex;
+        flex-direction : row;
+        padding        : 2em;
+        flex           : 1;
+
+        a {
+            font-weight : 400;
+            color       : inherit;
+        }
+
+        a:hover {
+            text-decoration : underline;
+        }
+
+        .b-watermark a {
+            color : #166dba;
+        }
+    }
+
+    #live-example {
+        flex       : 1;
+        display    : flex;
+        font-size  : 14px; // To make intro widget match the online examples
+        max-width  : 500px;
+        min-height : 250px;
+        transition : max-width 0.3s;
+        background : #fff;
+
+        // Use a little less space in this constrained example
+        .b-cal-cell-header {
+            padding-top : 0.75em !important;
+
+            .b-day-name-date {
+                font-size : 1.5em !important;
+                height    : 1.5em !important;
+                width     : 1.5em !important;
+            }
+        }
+    }
+
+    p {
+        flex        : 1;
+        margin      : 2em 1em 2em 2em;
+        transition  : margin 0.4s;
+        line-height : 1.6em;
+        max-width   : 50em;
+    }
+
+    #close-button {
+        position    : absolute;
+        top         : 1em;
+        right       : 1em;
+        font-size   : 1em;
+        margin-left : 1em;
+        cursor      : pointer;
+    }
+}
+
+.group-header {
+    position         : sticky;
+    top              : 0;
+    background-color : $body-color;
+    z-index          : 1;
+    padding          : 1em 0.8em;
+    border-bottom    : 2px solid $intro-color;
+}
+
+h2 {
+    margin : 0;
+}
+
+a {
+    text-decoration : none;
+}
+
+p:first-child {
+    margin-top : 0;
+}
+
+p:last-child {
+    margin-bottom : 0;
+}
+
+#scroller {
+    display               : grid;
+    grid-template-columns : repeat(auto-fit, minmax(256px, 1fr));
+    grid-gap              : 1em;
+
+    h2 {
+        grid-column : 1 / -1;
+    }
+}
+
+.example {
+    padding           : 1em;
+    border            : 2px dotted transparent;
+    max-width         : 512px;
+    cursor            : pointer;
+    position          : relative;
+    scroll-margin-top : 5em;
+
+    &.updated label:after,
+    &.new label:after {
+        content       : 'new';
+        display       : inline-block;
+        color         : #fff;
+        margin-left   : .5em;
+        padding       : 0 0.2em 0.2em 0.2em;
+        background    : #ff5722;
+        border-radius : .2em;
+        font-size     : .8em;
+        position      : relative;
+        top           : -.1em;
+    }
+
+    &.updated label:after {
+        content : 'updated';
+    }
+
+    .image {
+        position         : relative;
+        transition       : all 0.2s;
+        // Aspect ratio, before image is loaded
+        padding-top      : 75%;
+        background-color : #fff;
+
+        // Fix for IE11
+        .b-ie & {
+            padding-top      : 0;
+            background-color : transparent;
+        }
+    }
+
+    img {
+        position         : absolute;
+        top              : 0;
+        max-width        : 100%;
+        max-height       : 100%;
+        background-color : #fff;
+        transition       : all 0.2s;
+
+        // Fix for IE11
+        .b-ie & {
+            position : relative;
+            top      : auto;
+        }
+    }
+
+    i {
+        position         : absolute;
+        right            : 1em;
+        bottom           : 1em;
+        font-size        : 1em;
+        color            : #fff;
+        background-color : $blue;
+        padding          : .7em;
+        transition       : background-color 0.2s linear;
+        border-radius    : 50%;
+
+        &::before {
+            display    : block;
+            width      : 1em;
+            height     : 1em;
+            text-align : center;
+        }
+
+        &:hover {
+            background-color : $orange;
+        }
+
+        &.build {
+            background-color : $orange;
+
+            &:hover {
+                background-color : $blue;
+            }
+        }
+    }
+
+    .title {
+        display             : block;
+        cursor              : pointer;
+        padding             : .5em;
+        text-align          : center;
+        color               : #000;
+        -webkit-user-select : text;
+        -moz-user-select    : text;
+        -ms-user-select     : text;
+        user-select         : text;
+    }
+
+    .version {
+        position         : absolute;
+        left             : 1em;
+        bottom           : 1.1em;
+        font-size        : 1em;
+        color            : #fff;
+        background-color : $blue;
+        padding          : .5em;
+        border-radius    : 0.2em;
+    }
+
+    &:hover, &:focus {
+        .image {
+            transform : scale(1.05);
+        }
+
+        img {
+            box-shadow : 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &.b-focused {
+        border        : 2px dotted $blue;
+        border-radius : $widget-border-radius;
+        outline       : none;
+    }
+}
+
+.b-demo-unavailable {
+    .b-panel-header {
+        background-color : #ff9800;
+        color            : white;
+    }
+
+    .b-panel-content {
+        padding : 1em;
+    }
+}
+
+// IE11 specific stuff goes here
+@media all and (-ms-high-contrast : none), (-ms-high-contrast : active) {
+    .examples {
+        display : block;
+    }
+
+    .example {
+        display       : inline-block;
+        margin-right  : 1em;
+        margin-bottom : 1em;
+
+        img {
+            width : 256px;
+        }
+    }
+}
+
+.b-tooltip {
+    ul {
+        padding : 0 1.5em;
+
+        li {
+            white-space : nowrap;
+        }
+    }
+}
+
+@media (max-width : 800px) {
+    #intro {
+        #live-example {
+            display   : none;
+            max-width : 0;
+
+            .b-grid.b-ie {
+                width : 0; // Fix for IE11
+            }
+        }
+
+        p {
+            margin : 0;
+        }
+    }
+
+    #container .b-toolbar .b-button {
+        width : 3.5em !important;
+
+        label {
+            display : none;
+        }
+    }
+}
+
+@media (max-width : 570px) {
+    p {
+        font-size   : calc(.7em + 1vw);
+        line-height : calc(1.1em + 1vw);
+    }
+
+    [data-ref=filterField] {
+        display : none;
+    }
+}
+
+@media (max-width : 350px) {
+    #container .b-toolbar .b-button {
+        display : none;
+    }
+}
+
+.light {
+    #intro {
+        background-color : #039be5;
+    }
+}
+
+iframe[name=aweberFrame] {
+    display : none;
+}
+
+.demo-header {
+    z-index : 21;
+}
+
+#container .b-toolbar {
+    flex       : none !important;
+    box-shadow : 0 0 10px rgba(0, 0, 0, .3);
+    z-index    : 20;
+}
+
+.b-theme-classic .b-toolbar {
+    background : #eee;
+}
+
+//region During load
+
+.is-loading-theme {
+    .demo-header {
+        padding : 1em;
+        height  : 38px;
+    }
+
+    #toolbar {
+        padding : 0.6em !important;
+    }
+
+    &.b-theme-classic #toolbar {
+        background-color : #eee !important;
+    }
+
+    &.b-theme-classic-dark #toolbar {
+        background-color : #2b2b2f !important;
+    }
+
+    &.b-theme-classic-light #toolbar {
+        background-color : #f9f9f9 !important;
+    }
+
+    .b-tool {
+        background-color : transparent;
+        border           : none;
+        color            : #fff;
+        height           : 100%;
+    }
+}
+
+//endregion

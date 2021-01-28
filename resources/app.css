@@ -1,0 +1,31 @@
+@keyframes fake-progress {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.b-sch-event.b-sch-committing::before, .b-sch-event.b-sch-committing:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.b-sch-event.b-sch-committing::after, .b-sch-event.b-sch-committing:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 2px;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  animation: fake-progress;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}

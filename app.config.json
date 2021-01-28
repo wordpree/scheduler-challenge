@@ -1,0 +1,4 @@
+{
+  "title": "CrudManager demo",
+  "description": "Demonstrates an editable Scheduler using CrudManager to communicate with the backend (only stores data in session, no database)"
+}

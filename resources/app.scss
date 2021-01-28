@@ -1,0 +1,50 @@
+
+
+@keyframes fake-progress {
+    0% {
+        left : -50%;
+    }
+
+    100% {
+        left : 100%;
+    }
+}
+
+.b-sch-event {
+    //// Has unsaved changes
+    //&.b-sch-dirty {
+    //    background-image : linear-gradient(45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 95%, #f44336 95%, #f44336);
+    //}
+
+    // Currently committing changes, make fake progress bar
+    &.b-sch-committing,
+    &.b-sch-committing:hover {
+        &::before {
+            content    : '';
+
+            position   : absolute;
+            left       : 0;
+            top        : 0;
+            right      : 0;
+            height     : 2px;
+
+            background : rgba(0, 0, 0, .4);
+        }
+
+        &::after {
+            content                   : '';
+
+            position                  : absolute;
+            top                       : 0;
+            height                    : 2px;
+            width                     : 50%;
+
+            background                : rgba(255, 255, 255, .6);
+
+            animation                 : fake-progress;
+            animation-iteration-count : infinite;
+            animation-duration        : 2s;
+            animation-timing-function : linear;
+        }
+    }
+}

@@ -1,0 +1,394 @@
+body,
+#browser {
+  background: #f3f3f3;
+}
+
+body.b-theme-classic-dark,
+body.b-theme-classic-dark #browser,
+body.b-theme-classic-dark .group-header {
+  background: #2b2b2f;
+}
+
+body.b-theme-classic-dark .group-header,
+body.b-theme-classic-dark .example .title {
+  color: #ccc;
+}
+
+body.b-theme-classic-dark #intro #live-example,
+body.b-theme-classic-dark .example .image {
+  background: #44444a;
+}
+
+body.b-theme-classic-dark .example img {
+  background: transparent;
+}
+
+.b-watermark {
+  display: none;
+}
+
+#browser {
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+#scroller {
+  padding: 2em;
+}
+
+#intro {
+  position: relative;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.2em;
+  overflow: hidden;
+  max-height: 500px;
+  background-color: #1e519d;
+  transition: max-height 0.3s;
+}
+
+.b-theme-stockholm #intro {
+  background-color: #1e519d;
+}
+
+.b-theme-classic-light #intro {
+  background-color: #72bcf8;
+}
+
+.b-theme-classic-dark #intro {
+  background-color: #093272;
+}
+
+.b-theme-material #intro {
+  background-color: #166dba;
+}
+
+#intro #inner {
+  display: flex;
+  flex-direction: row;
+  padding: 2em;
+  flex: 1;
+}
+
+#intro #inner a {
+  font-weight: 400;
+  color: inherit;
+}
+
+#intro #inner a:hover {
+  text-decoration: underline;
+}
+
+#intro #inner .b-watermark a {
+  color: #166dba;
+}
+
+#intro #live-example {
+  flex: 1;
+  display: flex;
+  font-size: 14px;
+  max-width: 500px;
+  min-height: 250px;
+  transition: max-width 0.3s;
+  background: #fff;
+}
+
+#intro #live-example .b-cal-cell-header {
+  padding-top: 0.75em !important;
+}
+
+#intro #live-example .b-cal-cell-header .b-day-name-date {
+  font-size: 1.5em !important;
+  height: 1.5em !important;
+  width: 1.5em !important;
+}
+
+#intro p {
+  flex: 1;
+  margin: 2em 1em 2em 2em;
+  transition: margin 0.4s;
+  line-height: 1.6em;
+  max-width: 50em;
+}
+
+#intro #close-button {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1em;
+  margin-left: 1em;
+  cursor: pointer;
+}
+
+.group-header {
+  position: sticky;
+  top: 0;
+  background-color: #f3f3f3;
+  z-index: 1;
+  padding: 1em 0.8em;
+  border-bottom: 2px solid #166dba;
+}
+
+h2 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+#scroller {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  grid-gap: 1em;
+}
+
+#scroller h2 {
+  grid-column: 1 / -1;
+}
+
+.example {
+  padding: 1em;
+  border: 2px dotted transparent;
+  max-width: 512px;
+  cursor: pointer;
+  position: relative;
+  scroll-margin-top: 5em;
+}
+
+.example.updated label:after,
+.example.new label:after {
+  content: 'new';
+  display: inline-block;
+  color: #fff;
+  margin-left: .5em;
+  padding: 0 0.2em 0.2em 0.2em;
+  background: #ff5722;
+  border-radius: .2em;
+  font-size: .8em;
+  position: relative;
+  top: -.1em;
+}
+
+.example.updated label:after {
+  content: 'updated';
+}
+
+.example .image {
+  position: relative;
+  transition: all 0.2s;
+  padding-top: 75%;
+  background-color: #fff;
+}
+
+.b-ie .example .image {
+  padding-top: 0;
+  background-color: transparent;
+}
+
+.example img {
+  position: absolute;
+  top: 0;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.b-ie .example img {
+  position: relative;
+  top: auto;
+}
+
+.example i {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  font-size: 1em;
+  color: #fff;
+  background-color: #03a9f4;
+  padding: .7em;
+  transition: background-color 0.2s linear;
+  border-radius: 50%;
+}
+
+.example i::before {
+  display: block;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+}
+
+.example i:hover {
+  background-color: #ff9800;
+}
+
+.example i.build {
+  background-color: #ff9800;
+}
+
+.example i.build:hover {
+  background-color: #03a9f4;
+}
+
+.example .title {
+  display: block;
+  cursor: pointer;
+  padding: .5em;
+  text-align: center;
+  color: #000;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.example .version {
+  position: absolute;
+  left: 1em;
+  bottom: 1.1em;
+  font-size: 1em;
+  color: #fff;
+  background-color: #03a9f4;
+  padding: .5em;
+  border-radius: 0.2em;
+}
+
+.example:hover .image, .example:focus .image {
+  transform: scale(1.05);
+}
+
+.example:hover img, .example:focus img {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.example.b-focused {
+  border: 2px dotted #03a9f4;
+  border-radius: 2px;
+  outline: none;
+}
+
+.b-demo-unavailable .b-panel-header {
+  background-color: #ff9800;
+  color: white;
+}
+
+.b-demo-unavailable .b-panel-content {
+  padding: 1em;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .examples {
+    display: block;
+  }
+  .example {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 1em;
+  }
+  .example img {
+    width: 256px;
+  }
+}
+
+.b-tooltip ul {
+  padding: 0 1.5em;
+}
+
+.b-tooltip ul li {
+  white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  #intro #live-example {
+    display: none;
+    max-width: 0;
+  }
+  #intro #live-example .b-grid.b-ie {
+    width: 0;
+  }
+  #intro p {
+    margin: 0;
+  }
+  #container .b-toolbar .b-button {
+    width: 3.5em !important;
+  }
+  #container .b-toolbar .b-button label {
+    display: none;
+  }
+}
+
+@media (max-width: 570px) {
+  p {
+    font-size: calc(.7em + 1vw);
+    line-height: calc(1.1em + 1vw);
+  }
+  [data-ref=filterField] {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  #container .b-toolbar .b-button {
+    display: none;
+  }
+}
+
+.light #intro {
+  background-color: #039be5;
+}
+
+iframe[name=aweberFrame] {
+  display: none;
+}
+
+.demo-header {
+  z-index: 21;
+}
+
+#container .b-toolbar {
+  flex: none !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.b-theme-classic .b-toolbar {
+  background: #eee;
+}
+
+.is-loading-theme .demo-header {
+  padding: 1em;
+  height: 38px;
+}
+
+.is-loading-theme #toolbar {
+  padding: 0.6em !important;
+}
+
+.is-loading-theme.b-theme-classic #toolbar {
+  background-color: #eee !important;
+}
+
+.is-loading-theme.b-theme-classic-dark #toolbar {
+  background-color: #2b2b2f !important;
+}
+
+.is-loading-theme.b-theme-classic-light #toolbar {
+  background-color: #f9f9f9 !important;
+}
+
+.is-loading-theme .b-tool {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  height: 100%;
+}

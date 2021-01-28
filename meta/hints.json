@@ -1,0 +1,6 @@
+{
+    ".b-sch-event:nth-child(4)": {
+        "title"  : "Drag or resize me",
+        "content": "Changes are saved automatically"
+    }
+}
